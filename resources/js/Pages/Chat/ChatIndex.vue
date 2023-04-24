@@ -51,23 +51,11 @@ const title = computed(() => props.chat?.context[0].content ?? "New Chat");
             <ul class="p-2">
                 <li
                     v-if="chat"
-                    class="px-4 py-2 my-2 flex justify-between font-semibold text-green-400 bg-teal-900 hover:bg-teal-700 rounded-lg duration-200"
+                    class="px-4 py-2 my-2 flex justify-between font-semibold text-yellow-400 bg-teal-700 hover:bg-yellow-400 hover:text-teal-700 rounded-lg duration-200"
                 >
-                    <Link href="/chat" class="w-full">New Chat</Link>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-6 h-6"
+                    <Link href="/chat" class="w-full text-center"
+                        >New Chat</Link
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M12 4.5v15m7.5-7.5h-15"
-                        />
-                    </svg>
                 </li>
                 <template v-for="message in messages" :key="message.id">
                     <li
@@ -75,7 +63,7 @@ const title = computed(() => props.chat?.context[0].content ?? "New Chat");
                             message.id === chat?.id
                                 ? 'bg-teal-700'
                                 : 'bg-teal-900',
-                            'px-4 py-2 my-2 flex justify-between font-semibold text-teal-400 hover:bg-teal-700 rounded-lg duration-200',
+                            'px-4 py-2 my-2 flex justify-between font-semibold text-yellow-400 hover:bg-yellow-400 hover:text-teal-700 rounded-lg duration-200',
                         ]"
                     >
                         <Link :href="`/chat/${message.id}`">{{
@@ -88,17 +76,24 @@ const title = computed(() => props.chat?.context[0].content ?? "New Chat");
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                    class="w-6 h-6 text-red-300"
+                                    version="1.1"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xmlns:svgjs="http://svgjs.com/svgjs"
+                                    x="0"
+                                    y="0"
+                                    viewBox="0 0 512 512"
+                                    style="enable-background: new 0 0 512 512"
+                                    xml:space="preserve"
+                                    class="h-4 w-4"
                                 >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                                    />
+                                    <g>
+                                        <path
+                                            d="m62.205 150 26.569 320.735C90.678 493.865 110.38 512 133.598 512h244.805c23.218 0 42.92-18.135 44.824-41.265L449.795 150H62.205zm118.781 302c-7.852 0-14.458-6.108-14.956-14.063l-15-242c-.513-8.276 5.771-15.395 14.033-15.908 8.569-.601 15.381 5.757 15.908 14.033l15 242c.531 8.57-6.25 15.938-14.985 15.938zM271 437c0 8.291-6.709 15-15 15s-15-6.709-15-15V195c0-8.291 6.709-15 15-15s15 6.709 15 15v242zm89.97-241.062-15 242c-.493 7.874-7.056 14.436-15.908 14.033-8.262-.513-14.546-7.632-14.033-15.908l15-242c.513-8.276 7.764-14.297 15.908-14.033 8.262.513 14.546 7.632 14.033 15.908zM451 60h-90V45c0-24.814-20.186-45-45-45H196c-24.814 0-45 20.186-45 45v15H61c-16.569 0-30 13.431-30 30 0 16.567 13.431 30 30 30h390c16.569 0 30-13.433 30-30 0-16.569-13.431-30-30-30zm-120 0H181V45c0-8.276 6.724-15 15-15h120c8.276 0 15 6.724 15 15v15z"
+                                            fill="#ff0000"
+                                            data-original="#000000"
+                                            class=""
+                                        ></path>
+                                    </g>
                                 </svg>
                             </button>
                             <span
@@ -174,7 +169,7 @@ const title = computed(() => props.chat?.context[0].content ?? "New Chat");
                         <input
                             type="text"
                             class="w-full bg-teal-700 text-white rounded-lg"
-                            placeholder="Ask Laravel AI"
+                            placeholder="Assalamulikum Ask me anything!"
                             v-model="form.promt"
                             @keyup.enter="submit"
                             :disabled="form.processing"
@@ -216,40 +211,40 @@ const title = computed(() => props.chat?.context[0].content ?? "New Chat");
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    background-color: #9880ff;
-    color: #9880ff;
-    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff,
-        10014px 0 0 0 #9880ff;
+    background-color: #7bad77;
+    color: #7bad77;
+    box-shadow: 9984px 0 0 0 #7bad77, 9999px 0 0 0 #7bad77,
+        10014px 0 0 0 #7bad77;
     animation: dot-typing 1.5s infinite linear;
 }
 @keyframes dot-typing {
     0% {
-        box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff,
-            10014px 0 0 0 #9880ff;
+        box-shadow: 9984px 0 0 0 #7bad77, 9999px 0 0 0 #7bad77,
+            10014px 0 0 0 #7bad77;
     }
     16.667% {
-        box-shadow: 9984px -10px 0 0 #9880ff, 9999px 0 0 0 #9880ff,
-            10014px 0 0 0 #9880ff;
+        box-shadow: 9984px -10px 0 0 #7bad77, 9999px 0 0 0 #7bad77,
+            10014px 0 0 0 #7bad77;
     }
     33.333% {
-        box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff,
-            10014px 0 0 0 #9880ff;
+        box-shadow: 9984px 0 0 0 #7bad77, 9999px 0 0 0 #7bad77,
+            10014px 0 0 0 #7bad77;
     }
     50% {
-        box-shadow: 9984px 0 0 0 #9880ff, 9999px -10px 0 0 #9880ff,
-            10014px 0 0 0 #9880ff;
+        box-shadow: 9984px 0 0 0 #7bad77, 9999px -10px 0 0 #7bad77,
+            10014px 0 0 0 #7bad77;
     }
     66.667% {
-        box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff,
-            10014px 0 0 0 #9880ff;
+        box-shadow: 9984px 0 0 0 #7bad77, 9999px 0 0 0 #7bad77,
+            10014px 0 0 0 #7bad77;
     }
     83.333% {
-        box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff,
-            10014px -10px 0 0 #9880ff;
+        box-shadow: 9984px 0 0 0 #7bad77, 9999px 0 0 0 #7bad77,
+            10014px -10px 0 0 #7bad77;
     }
     100% {
-        box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff,
-            10014px 0 0 0 #9880ff;
+        box-shadow: 9984px 0 0 0 #7bad77, 9999px 0 0 0 #7bad77,
+            10014px 0 0 0 #7bad77;
     }
 }
 </style>
