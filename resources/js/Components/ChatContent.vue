@@ -261,7 +261,9 @@ const user = computed(() => props.content?.role === "user");
             </svg>
         </span>
         <section class="w-4/6 text-left pl-4">
-            <span v-if="content.role === 'user'" class="font-bold">{{ $page.props.auth.user.name }} :</span>
+            <span v-if="content.role === 'user'" class="font-bold"
+                >{{ $page.props.auth.user.name }} :</span
+            >
             <span v-else class="font-bold">AI :</span>
             <br />
             {{ content?.content }}
